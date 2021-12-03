@@ -1,4 +1,12 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Note } from 'src/modules/note/note.entity';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { IAccount } from '../interfaces/account.interface';
 
 @Entity()
@@ -21,9 +29,25 @@ export class Account implements IAccount {
   @Column()
   password: string;
 
+  @OneToMany(() => Note, (note) => note.accountId)
+  notes: Note[];
+
   @Column({ default: false })
   isVerified: boolean;
 
   @Column({ default: true })
   isActive: boolean;
+
+  @CreateDateColumn({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP(6)',
+  })
+  createdAt: Date;
+
+  @UpdateDateColumn({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP(6)',
+    onUpdate: 'CURRENT_TIMESTAMP(6)',
+  })
+  public updatedAt: Date;
 }
