@@ -16,6 +16,18 @@ async function bootstrap() {
     .setDescription('The investigation API description')
     .setVersion('1.0')
     .addTag('investigate')
+    .setBasePath('swagger')
+    .addBearerAuth(
+      {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+        name: 'JWT',
+        description: 'Enter JWT token',
+        in: 'header',
+      },
+      'access-token',
+    )
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
