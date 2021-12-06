@@ -29,7 +29,7 @@ export class Account implements IAccount {
   @Column()
   password: string;
 
-  @OneToMany(() => Note, (note) => note.accountId)
+  @OneToMany(() => Note, (note) => note.account)
   notes: Note[];
 
   @Column({ default: false })

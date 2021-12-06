@@ -24,7 +24,7 @@ export class Note implements INote {
   isActive: boolean;
 
   @ManyToOne(() => Account, (account) => account.notes)
-  accountId: number;
+  account: Account;
 
   @CreateDateColumn({
     type: 'timestamp',
