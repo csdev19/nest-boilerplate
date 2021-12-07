@@ -9,6 +9,10 @@
 - [x] [Eslint & Prettier]()
 
 
+## Extra
+
+If youy want to use snake-case go to this [package](https://www.npmjs.com/package/typeorm-naming-strategies)
+
 
 #### Docker
 
