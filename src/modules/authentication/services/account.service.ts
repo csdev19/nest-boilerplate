@@ -17,6 +17,7 @@ export class AccountService {
     account.firstName = createAccountDto.firstName;
     account.lastName = createAccountDto.lastName;
     account.email = createAccountDto.email;
+    account.username = createAccountDto.username;
     const hashedPassword = await encriptor.encrypt(createAccountDto.password);
     account.password = hashedPassword;
 
