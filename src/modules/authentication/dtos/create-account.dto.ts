@@ -11,5 +11,8 @@ export class CreateAccountDto {
   email: string;
 
   @ApiProperty()
+  username: string;
+
+  @ApiProperty()
   password: string;
 }
