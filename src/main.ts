@@ -15,7 +15,6 @@ async function bootstrap() {
     .setTitle('Investigation example')
     .setDescription('The investigation API description')
     .setVersion('1.0')
-    .addTag('investigate')
     .setBasePath('swagger')
     .addBearerAuth(
       {
