@@ -7,6 +7,7 @@ import {
   Post,
   Put,
   UseGuards,
+  Request,
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { JwtAuthenticationGuard } from '../authentication/guards/jwt-authentication.guard';
@@ -30,7 +31,10 @@ export class NoteController {
   @Get()
   @ApiTags('Notes')
   @ApiBearerAuth('access-token')
-  findAll() {
+  async findAll(@Request() request) {
+    console.log('request', request);
+    console.log('request.user', request.user);
+
     return this.noteService.findAll();
   }
 
