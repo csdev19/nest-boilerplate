@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { Account } from '../authentication/entities/account.entity';
 import { CreateNoteDto } from './dtos/create-note.dto';
 import { UpdateNoteDto } from './dtos/update-note.dto';
 import { Note } from './note.entity';
@@ -20,10 +21,11 @@ export class NoteService {
     return this.notesRepository.findOne(id);
   }
 
-  create(noteDto: CreateNoteDto) {
+  create(noteDto: CreateNoteDto, account: Account) {
     const note = new Note();
     note.title = noteDto.title;
     note.content = noteDto.content;
+    note.account = account;
     return this.notesRepository.save(note);
   }
 
