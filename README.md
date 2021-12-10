@@ -3,11 +3,12 @@
 ## Features
 
 - [x] [Nestjs performance Fastify](https://docs.nestjs.com/techniques/performance)
-- [x] [Swagger]()
-- [x] [Typeorm]()
-- [x] [Docker compose]()
-- [x] [Eslint & Prettier]()
-
+- [x] [Swagger](https://swagger.io/)
+- [x] [Typeorm](https://typeorm.io/)
+- [x] [Docker compose](https://docs.docker.com/engine/reference/commandline/compose/)
+- [x] [Eslint](https://eslint.org/)
+- [x] [Prettier](https://prettier.io/)
+- [x] [Docker](https://www.docker.com/)
 
 ## Extra
 
