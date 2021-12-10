@@ -9,7 +9,8 @@ import {
   UseGuards,
   Request,
 } from '@nestjs/common';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { Account } from '../authentication/entities/account.entity';
 import { JwtAuthenticationGuard } from '../authentication/guards/jwt-authentication.guard';
 import { CreateNoteDto } from './dtos/create-note.dto';
 import { UpdateNoteDto } from './dtos/update-note.dto';
@@ -22,25 +23,29 @@ export class NoteController {
   @UseGuards(JwtAuthenticationGuard)
   @Post()
   @ApiTags('Notes')
+  @ApiResponse({ status: 200, description: 'Successful create' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
   @ApiBearerAuth('access-token')
-  create(@Body() noteDto: CreateNoteDto) {
-    return this.noteService.create(noteDto);
+  create(@Body() noteDto: CreateNoteDto, @Request() request) {
+    const account: Account = request.user;
+    return this.noteService.create(noteDto, account);
   }
 
   @UseGuards(JwtAuthenticationGuard)
   @Get()
   @ApiTags('Notes')
+  @ApiResponse({ status: 200, description: 'Successful find all' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
   @ApiBearerAuth('access-token')
-  async findAll(@Request() request) {
-    console.log('request', request);
-    console.log('request.user', request.user);
-
+  async findAll() {
     return this.noteService.findAll();
   }
 
   @UseGuards(JwtAuthenticationGuard)
   @Get(':id')
   @ApiTags('Notes')
+  @ApiResponse({ status: 200, description: 'Successful find by id' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
   @ApiBearerAuth('access-token')
   findById(@Param('id') id: string) {
     return this.noteService.findById(id);
@@ -49,6 +54,8 @@ export class NoteController {
   @UseGuards(JwtAuthenticationGuard)
   @Put(':id')
   @ApiTags('Notes')
+  @ApiResponse({ status: 200, description: 'Successful create' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
   @ApiBearerAuth('access-token')
   update(@Param('id') id: string, @Body() noteDto: UpdateNoteDto) {
     return this.noteService.update(id, noteDto);
@@ -57,6 +64,8 @@ export class NoteController {
   @UseGuards(JwtAuthenticationGuard)
   @Delete(':id')
   @ApiTags('Notes')
+  @ApiResponse({ status: 200, description: 'Successful delete' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
   @ApiBearerAuth('access-token')
   delete(@Param('id') id: string) {
     return this.noteService.delete(id);
