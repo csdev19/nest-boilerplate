@@ -12,7 +12,7 @@ import { LoginDto } from './dtos/login.dto';
 import { JwtAuthenticationGuard } from './guards/jwt-authentication.guard';
 import { SignupDto } from './dtos/signup.dto';
 import { AccountService } from './services/account.service';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @Controller('auth')
 export class AuthController {
@@ -23,6 +23,8 @@ export class AuthController {
 
   @Public()
   @ApiTags('Authentication')
+  @ApiResponse({ status: 200, description: 'Successful login' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
   @Post('login')
   async login(@Body() login: LoginDto) {
     console.log('req', login);
@@ -34,6 +36,8 @@ export class AuthController {
 
   @Public()
   @ApiTags('Authentication')
+  @ApiResponse({ status: 200, description: 'Successful signup' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
   @Post('signup')
   async signup(@Body() signup: SignupDto) {
     console.log('req', signup);
@@ -42,6 +46,8 @@ export class AuthController {
 
   @UseGuards(JwtAuthenticationGuard)
   @ApiTags('Authentication')
+  @ApiResponse({ status: 200, description: 'Successful get profile data' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
   @Get('profile')
   @ApiBearerAuth('access-token')
   getProfile(@Request() req): any {
