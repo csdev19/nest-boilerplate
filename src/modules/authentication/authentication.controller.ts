@@ -27,7 +27,6 @@ export class AuthController {
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   @Post('login')
   async login(@Body() login: LoginDto) {
-    console.log('req', login);
     return this.authenticationService.login({
       password: login.password,
       username: login.username,
@@ -40,7 +39,6 @@ export class AuthController {
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   @Post('signup')
   async signup(@Body() signup: SignupDto) {
-    console.log('req', signup);
     return this.accountService.create({ ...signup });
   }
 
