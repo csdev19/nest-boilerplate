@@ -4,7 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './modules/authentication/authentication.module';
 import { NoteModule } from './modules/note/note.module';
 import { Note } from './modules/note/note.entity';
-import { Account } from './modules/authentication/entities/account.entity';
+import { Account } from './modules/accounts/entities/account.entity';
 
 @Module({
   imports: [

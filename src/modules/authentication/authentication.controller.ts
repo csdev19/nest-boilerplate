@@ -11,15 +11,11 @@ import { Public } from './decorators/public.decorator';
 import { LoginDto } from './dtos/login.dto';
 import { JwtAuthenticationGuard } from './guards/jwt-authentication.guard';
 import { SignupDto } from './dtos/signup.dto';
-import { AccountService } from './services/account.service';
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @Controller('auth')
 export class AuthController {
-  constructor(
-    private authenticationService: AuthenticationService,
-    private accountService: AccountService,
-  ) {}
+  constructor(private authenticationService: AuthenticationService) {}
 
   @Public()
   @ApiTags('Authentication')
@@ -39,7 +35,7 @@ export class AuthController {
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   @Post('signup')
   async signup(@Body() signup: SignupDto) {
-    return this.accountService.create({ ...signup });
+    return this.authenticationService.signup({ ...signup });
   }
 
   @UseGuards(JwtAuthenticationGuard)

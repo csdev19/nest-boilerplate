@@ -6,7 +6,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Account } from '../authentication/entities/account.entity';
+import { Account } from '../accounts/entities/account.entity';
 import { INote } from './interfaces/note.interface';
 
 @Entity()

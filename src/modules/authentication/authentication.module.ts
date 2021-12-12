@@ -7,29 +7,26 @@ import { AuthenticationService } from './services/authentication.service';
 import { jwtConstants } from './constants/jwt';
 import { JwtAuthenticationGuard } from './guards/jwt-authentication.guard';
 import { JwtStrategy } from './strategies/jwt.strategy';
-import { Account } from './entities/account.entity';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { AccountService } from './services/account.service';
+import { AccountModule } from '../accounts/accounts.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Account]),
     PassportModule,
     JwtModule.register({
       secret: jwtConstants.secret,
       signOptions: { expiresIn: jwtConstants.expiresIn },
     }),
+    AccountModule,
   ],
   providers: [
     AuthenticationService,
-    AccountService,
     JwtStrategy,
     {
       provide: APP_GUARD,
       useClass: JwtAuthenticationGuard,
     },
   ],
-  exports: [AuthenticationService, AccountService, JwtStrategy],
+  exports: [AuthenticationService, JwtStrategy],
   controllers: [AuthController],
 })
 export class AuthModule {}
