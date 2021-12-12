@@ -1,6 +1,6 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { AccountsService } from 'src/modules/accounts/accounts.service';
+import { AccountsService } from 'src/modules/accounts/services/accounts.service';
 import { SignupDto } from '../dtos/signup.dto';
 import encriptor from '../encrypt';
 
