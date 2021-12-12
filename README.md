@@ -2,6 +2,7 @@
 
 🔥 Nest boilerplate to create projects as fast as possible 🔥
 
+
 ## Features
 
 - [x] [Nestjs performance Fastify](https://docs.nestjs.com/techniques/performance)
@@ -11,6 +12,7 @@
 - [x] [Eslint](https://eslint.org/)
 - [x] [Prettier](https://prettier.io/)
 - [x] [Docker](https://www.docker.com/)
+- [ ] [Jest](https://jestjs.io/)
 
 ## Code standards
 
@@ -18,7 +20,7 @@
 - The controllers are plural and his path too
 - The service are plural
 
-## Actual Folder structure 
+## Actual Folder structure
 
 ```
 ├── dist/
@@ -72,6 +74,10 @@
 │   ├── services/
 │   └── interfaces/
 ```
+
+## Contributors
+
+- Author - Cristian Sotomayor [@csdev](https://github.com/csdev19)
 
 ## Extra
 
