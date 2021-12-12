@@ -10,6 +10,12 @@
 - [x] [Prettier](https://prettier.io/)
 - [x] [Docker](https://www.docker.com/)
 
+## Code standards
+
+- The modules are plural
+- The controllers are plural and his path too
+- The service are plural
+
 ## Extra
 
 If youy want to use snake-case go to this [package](https://www.npmjs.com/package/typeorm-naming-strategies)
