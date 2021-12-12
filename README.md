@@ -1,5 +1,7 @@
 # Nest Boilerplate
 
+🔥 Nest boilerplate to create projects as fast as possible 🔥
+
 ## Features
 
 - [x] [Nestjs performance Fastify](https://docs.nestjs.com/techniques/performance)
@@ -16,12 +18,67 @@
 - The controllers are plural and his path too
 - The service are plural
 
+## Actual Folder structure 
+
+```
+├── dist/
+├── docker-compose.yml
+├── Dockerfile
+├── nest-cli.json
+├── package.json
+├── package-lock.json
+├── README.md
+├── src/
+│   ├── app.module.ts
+│   ├── main.ts
+│   └── modules/
+│       ├── <module-name>/
+│       │   ├── <module-name>.module.ts
+│       │   ├── dtos/
+│       │   ├── entities/
+│       │   ├── services/
+│       │   └── interfaces/
+│       ├── authentication/
+│       │   ├── authentication.controller.ts
+│       │   ├── authentication.module.ts
+│       │   ├── constants/
+│       │   ├── decorators/
+│       │   ├── dtos/
+│       │   ├── encrypt/
+│       │   ├── guards/
+│       │   ├── services/
+│       │   └── strategies/
+│       └── note
+│           ├── dtos/
+│           ├── interfaces/
+│           ├── note.controller.ts
+│           ├── note.entity.ts
+│           ├── note.module.ts
+│           └── note.service.ts
+├── test/
+│   ├── app.e2e-spec.ts
+│   └── jest-e2e.json
+├── tsconfig.build.json
+└── tsconfig.json
+```
+
+## Module structure
+
+```
+├── <module-name>/
+│   ├── <module-name>.module.ts
+│   ├── dtos/
+│   ├── entities/
+│   ├── services/
+│   └── interfaces/
+```
+
 ## Extra
 
 If youy want to use snake-case go to this [package](https://www.npmjs.com/package/typeorm-naming-strategies)
 
 
-#### Docker
+### Docker
 
 There is a `docker-compose.yml` file for starting Docker.
 
