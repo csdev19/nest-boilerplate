@@ -1,12 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CreateAccountDto } from '../dtos/create-account.dto';
-import encriptor from '../encrypt';
-import { Account } from '../entities/account.entity';
+import { CreateAccountDto } from './dtos/create-account.dto';
+import { Account } from './entities/account.entity';
 
 @Injectable()
-export class AccountService {
+export class AccountsService {
   constructor(
     @InjectRepository(Account)
     private readonly accountRepository: Repository<Account>,
@@ -18,8 +17,7 @@ export class AccountService {
     account.lastName = createAccountDto.lastName;
     account.email = createAccountDto.email;
     account.username = createAccountDto.username;
-    const hashedPassword = await encriptor.encrypt(createAccountDto.password);
-    account.password = hashedPassword;
+    account.password = createAccountDto.password;
 
     return this.accountRepository.save(account);
   }
