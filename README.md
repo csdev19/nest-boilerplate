@@ -16,9 +16,10 @@
 
 ## Code standards
 
-- The modules are plural
-- The controllers are plural and his path too
-- The service are plural
+- The modules are plural **(module-name.module.ts)**
+- The controllers are plural and his path too **(controller-name.controller.ts)**
+- The services are plural **(service-name.service.ts)**
+- The entities are singular **(entity-name.entity.ts)**
 
 ## Actual Folder structure
 
