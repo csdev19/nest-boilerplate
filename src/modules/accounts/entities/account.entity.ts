@@ -1,4 +1,4 @@
-import { Note } from 'src/modules/note/note.entity';
+import { Note } from 'src/modules/notes/entities/note.entity';
 import {
   Column,
   CreateDateColumn,
