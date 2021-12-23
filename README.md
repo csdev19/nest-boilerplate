@@ -32,35 +32,35 @@
 ├── package-lock.json
 ├── README.md
 ├── src/
-│   ├── app.module.ts
-│   ├── main.ts
-│   └── modules/
-│       ├── <module-name>/
-│       │   ├── <module-name>.module.ts
-│       │   ├── dtos/
-│       │   ├── entities/
-│       │   ├── services/
-│       │   └── interfaces/
-│       ├── authentication/
-│       │   ├── authentication.controller.ts
-│       │   ├── authentication.module.ts
-│       │   ├── constants/
-│       │   ├── decorators/
-│       │   ├── dtos/
-│       │   ├── encrypt/
-│       │   ├── guards/
-│       │   ├── services/
-│       │   └── strategies/
-│       └── note
-│           ├── dtos/
-│           ├── interfaces/
-│           ├── note.controller.ts
-│           ├── note.entity.ts
-│           ├── note.module.ts
-│           └── note.service.ts
+│   ├── app.module.ts
+│   ├── main.ts
+│   └── modules/
+│       ├── <module-name>/
+│       │   ├── <module-name>.module.ts
+│       │   ├── dtos/
+│       │   ├── entities/
+│       │   ├── services/
+│       │   └── interfaces/
+│       ├── authentication/
+│       │   ├── authentication.controller.ts
+│       │   ├── authentication.module.ts
+│       │   ├── constants/
+│       │   ├── decorators/
+│       │   ├── dtos/
+│       │   ├── encrypt/
+│       │   ├── guards/
+│       │   ├── services/
+│       │   └── strategies/
+│       └── note
+│           ├── dtos/
+│           ├── interfaces/
+│           ├── note.controller.ts
+│           ├── note.entity.ts
+│           ├── note.module.ts
+│           └── note.service.ts
 ├── test/
-│   ├── app.e2e-spec.ts
-│   └── jest-e2e.json
+│   ├── app.e2e-spec.ts
+│   └── jest-e2e.json
 ├── tsconfig.build.json
 └── tsconfig.json
 ```
@@ -69,11 +69,11 @@
 
 ```
 ├── <module-name>/
-│   ├── <module-name>.module.ts
-│   ├── dtos/
-│   ├── entities/
-│   ├── services/
-│   └── interfaces/
+│   ├── <module-name>.module.ts
+│   ├── dtos/
+│   ├── entities/
+│   ├── services/
+│   └── interfaces/
 ```
 
 ## Contributors
