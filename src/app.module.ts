@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
-import { AuthModule } from './modules/authentication/authentication.module';
-import { NoteModule } from './modules/note/note.module';
-import { Note } from './modules/note/note.entity';
+import { NotesModule } from './modules/notes/notes.module';
 import { Account } from './modules/accounts/entities/account.entity';
+import { Note } from './modules/notes/entities/note.entity';
+import { AuthenticationModule } from './modules/authentication/authentication.module';
 
 @Module({
   imports: [
@@ -20,8 +20,8 @@ import { Account } from './modules/accounts/entities/account.entity';
       synchronize: true,
       entities: [Account, Note],
     }),
-    AuthModule,
-    NoteModule,
+    AuthenticationModule,
+    NotesModule,
   ],
 })
 export class AppModule {}
