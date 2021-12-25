@@ -11,14 +11,20 @@ import { Public } from './decorators/public.decorator';
 import { LoginDto } from './dtos/login.dto';
 import { JwtAuthenticationGuard } from './guards/jwt-authentication.guard';
 import { SignupDto } from './dtos/signup.dto';
-import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 
 @Controller('auth')
-export class AuthController {
+export class AuthenticationController {
   constructor(private authenticationService: AuthenticationService) {}
 
   @Public()
   @ApiTags('Authentication')
+  @ApiOperation({ summary: 'Login enpoint' })
   @ApiResponse({ status: 200, description: 'Successful login' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   @Post('login')
@@ -31,6 +37,7 @@ export class AuthController {
 
   @Public()
   @ApiTags('Authentication')
+  @ApiOperation({ summary: 'Signup enpoint' })
   @ApiResponse({ status: 200, description: 'Successful signup' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   @Post('signup')
@@ -40,6 +47,7 @@ export class AuthController {
 
   @UseGuards(JwtAuthenticationGuard)
   @ApiTags('Authentication')
+  @ApiOperation({ summary: 'Profile endpoint' })
   @ApiResponse({ status: 200, description: 'Successful get profile data' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   @Get('profile')
