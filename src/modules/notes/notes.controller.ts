@@ -35,7 +35,7 @@ export class NotesController {
   @ApiBearerAuth('access-token')
   create(@Body() noteDto: CreateNoteDto, @Request() request) {
     const account: Account = request.user;
-    return this.notesService.create(noteDto, account);
+    return this.notesService.create(noteDto, account.id);
   }
 
   @UseGuards(JwtAuthenticationGuard)
